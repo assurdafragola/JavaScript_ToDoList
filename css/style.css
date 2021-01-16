@@ -128,6 +128,10 @@ button:hover {
     margin: 5px 20px;
 }
 
+.list_task.completed {
+    opacity: 0.2;
+}
+
 .list_task_checked {
     margin-right: 15px;
     border: 3px solid #53505A;
@@ -140,11 +144,11 @@ button:hover {
 .list_task_checked .fas{
     font-size: 1.5em;
     padding: 0;
-    color: white;
+    color:  #53505A;
 }
 
-.list_task_checked:hover .fas{
-    color: #53505A;
+.list_task_checked.inactive .fas{
+    color: white;
 }
 
 .list_task_text {
@@ -152,7 +156,12 @@ button:hover {
     padding-right: 10px;
 }
 
-.list_task_important:hover .fas {
+.list_task.completed .list_task_text {
+    text-decoration: line-through;
+    
+}
+
+.list_task_important.important .fas {
     opacity: 1 
 }
 
@@ -184,7 +193,7 @@ button:hover {
     display:none;
   }
   
-.add_popup_content {
+.add_popup_content, .delete_popup_content {
     position:absolute;
     top:20%;
     left:50%;
@@ -203,7 +212,7 @@ button:hover {
   }
 
 
-.add_popup_content_header {
+.add_popup_content_header, .delete_popup_content_header  {
     margin-bottom:20px;
     font-weight: 600;
 }
@@ -229,36 +238,39 @@ button:hover {
     width: 272px
 }
 
-.add_popup_content_btn {
+.add_popup_content_btn, .delete_popup_content_btn {
     display: flex;
     color:#53505A;
     font-size:1.2em;
     text-align:center;
 }
 
-.add_popup_content_btn_close, .add_popup_content_btn_submit {
+.delete_popup_content_btn {
+    margin-top: 20px;
+}
+
+.add_popup_content_btn_close, .add_popup_content_btn_submit, .delete_popup_content_btn_close, .delete_popup_content_btn_submit  {
     border-radius: 5px;
     width: 90px;
     height: 30px;
     margin-right: 20px;
     color: white;
     font-weight: 600;
-
 }
 
-.add_popup_content_btn_close {
+.add_popup_content_btn_close, .delete_popup_content_btn_close {
     background-color: darkred;
 }
 
-.add_popup_content_btn_submit {
+.add_popup_content_btn_submit, .delete_popup_content_btn_submit {
     background-color: #198C19;
 }
   
-.add_popup.active .overlay {
+.add_popup.active .overlay, .delete_popup.active .overlay {
     display:block;
-  }
+}
   
-.add_popup.active .add_popup_content {
+.add_popup.active .add_popup_content, .delete_popup.active .delete_popup_content {
     transition:all 300ms ease-in-out;
     transform:translate(-50%,-50%) scale(1);
-  }
+ }

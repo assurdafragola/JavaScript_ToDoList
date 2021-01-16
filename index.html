@@ -24,7 +24,7 @@
 
 <ul class="list">
     <li id="task" class="list_task hidden">
-        <button class="list_task_checked"><i class="fas fa-check"></i></i></button>
+        <button class="list_task_checked inactive"><i class="fas fa-check"></i></i></button>
         <p id="task_text" class="list_task_text">Zrób zakupy</p>
         <p id="task_deadline" class="list_task_text">2021-01-16</p>
         <button class="list_task_important"><i class="fas fa-star"></i></button>
@@ -45,6 +45,34 @@
         <div class="add_popup_content_btn">
             <button class="add_popup_content_btn_submit">SAVE</button>
             <button class="add_popup_content_btn_close">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+<!-- pop up edit form -->
+
+<div class="add_popup">
+    <div class="overlay"></div>
+    <div class="add_popup_content">
+        <h1 class="add_popup_content_header">Create New Task</h1>
+        <input class="add_popup_content_task" type="text">
+        <label class="add_popup_content_ddl">set a deadline<input type="date"></label>
+        <div class="add_popup_content_btn">
+            <button class="add_popup_content_btn_submit">SAVE</button>
+            <button class="add_popup_content_btn_close">CLOSE</button>
+        </div>
+    </div>
+</div>
+
+<!-- pop up delete -->
+
+<div class="delete_popup">
+    <div class="overlay"></div>
+    <div class="delete_popup_content">
+        <h1 class="delete_popup_content_header">Are you sure you want to delete this task?</h1>
+        <div class="delete_popup_content_btn">
+            <button class="delete_popup_content_btn_submit">DELETE</button>
+            <button class="delete_popup_content_btn_close">CANCEL</button>
         </div>
     </div>
 </div>
