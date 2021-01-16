@@ -1,0 +1,169 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, font, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	outline: 0;
+	font-weight: inherit;
+	font-style: inherit;
+	font-size: 100%;
+	font-family: inherit;
+	vertical-align: baseline;
+}
+/* remember to define focus styles! */
+:focus {
+	outline: 0;
+}
+body {
+	line-height: 1;
+	color: black;
+	background: white;
+}
+ol, ul {
+	list-style: none;
+}
+/* tables still need 'cellspacing="0"' in the markup */
+table {
+	border-collapse: separate;
+	border-spacing: 0;
+}
+caption, th, td {
+	text-align: left;
+	font-weight: normal;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: "";
+}
+blockquote, q {
+	quotes: "" "";
+}
+
+/* main css rules */
+
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 20px;
+}
+
+button {
+    background: none;
+    border: none;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.header {
+    /* font-family: 'Permanent Marker', cursive; */
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 3em;
+    padding: 50px 100px ;
+    /* padding-top: 50px;
+    padding-bottom: 30px; */
+    background-color: #F9F9FA;
+}
+
+.add.delete {
+    display: flex;
+    align-items: center;
+    height: 80px;
+    padding-left: 30px;
+}
+
+.add_label, .delete_label {
+    font-size: 1em;
+}
+
+.add_button, .delete_button {
+    width: 70px;
+}
+
+.delete_button {
+    margin-left: 30px;
+}
+
+
+.add_button .fas, .delete_button .fas {
+    font-size: 3em;
+    text-align: center;
+}
+
+.add_button .fas{
+    color: #198C19;
+}
+
+.delete_button .fas {
+    color: darkred;
+}
+
+.add_button:hover .fas, .delete_button:hover .fas{
+    font-size: 4em;
+}
+
+.list {
+    display: flex;
+    flex-direction: column;
+    padding-left: 30px;
+}
+.list .fas {
+    font-size: 1.5em;
+    color: #53505A;
+}
+
+.list_task {
+    display: flex;
+    align-items: center;
+    margin: 5px 20px;
+}
+
+.list_task_checked {
+    margin-right: 15px;
+    border: 3px solid #53505A;
+    width: 30px;
+    height: 30px;
+    padding: 0;
+    border-radius: 5px;
+}
+
+.list_task_checked .fas{
+    font-size: 1.5em;
+    padding: 0;
+    color: white;
+}
+
+.list_task_checked:hover .fas{
+    color: #53505A;
+}
+
+.list_task_text {
+    font-size: 0.9em;
+    padding-right: 10px;
+}
+
+.list_task_important:hover .fas {
+    opacity: 1 
+}
+
+.list_task_important .fas {
+    opacity: 0.1;
+    color: goldenrod;
+}
+
+.list_task_edit:hover .fas{
+    color:#DDEE44
+}
+
+.list_task_delete:hover .fas{
+    color: darkred;
+}
+
+
+
