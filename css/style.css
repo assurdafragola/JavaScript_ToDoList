@@ -61,6 +61,10 @@ button:hover {
     cursor: pointer;
 }
 
+.hidden {
+    visibility: hidden;
+}
+
 .header {
     /* font-family: 'Permanent Marker', cursive; */
     font-family: 'Reenie Beanie', cursive;
@@ -167,3 +171,94 @@ button:hover {
 
 
 
+/* popup add new task */
+
+.overlay {
+    position:fixed;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background:rgba(0,0,0,0.7);
+    z-index:1;
+    display:none;
+  }
+  
+.add_popup_content {
+    position:absolute;
+    top:20%;
+    left:50%;
+    transform:translate(-50%,-50%) scale(0);
+    background:#fff;
+    width:450px;
+    min-height: 150px;
+    z-index:2;
+    padding:30px;
+    box-sizing:border-box;
+
+    display: flex;
+    flex-direction: column;
+    margin: 20px
+
+  }
+
+
+.add_popup_content_header {
+    margin-bottom:20px;
+    font-weight: 600;
+}
+
+.add_popup_content_task {
+    margin-bottom:20px;
+    font-size: 0.9em;
+    border: 1px solid #53505A;
+    border-radius: 5px;
+}
+
+.add_popup_content_ddl {
+    margin-bottom:30px;
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.add_popup_content_ddl input {
+    font-size: 0.9em;
+    border: 1px solid #53505A;
+    border-radius: 5px;
+    margin-left: 10px;
+    width: 272px
+}
+
+.add_popup_content_btn {
+    display: flex;
+    color:#53505A;
+    font-size:1.2em;
+    text-align:center;
+}
+
+.add_popup_content_btn_close, .add_popup_content_btn_submit {
+    border-radius: 5px;
+    width: 90px;
+    height: 30px;
+    margin-right: 20px;
+    color: white;
+    font-weight: 600;
+
+}
+
+.add_popup_content_btn_close {
+    background-color: darkred;
+}
+
+.add_popup_content_btn_submit {
+    background-color: #198C19;
+}
+  
+.add_popup.active .overlay {
+    display:block;
+  }
+  
+.add_popup.active .add_popup_content {
+    transition:all 300ms ease-in-out;
+    transform:translate(-50%,-50%) scale(1);
+  }

@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@100;300;400;700&display=swap" rel="stylesheet">
     <script src="https://kit.fontawesome.com/2fc3eac94b.js" crossorigin="anonymous"></script>
+    <script src="js/app.js"></script>
 </head>
 <body>
 
@@ -22,21 +23,31 @@
 </div>
 
 <ul class="list">
-    <li class="list_task">
+    <li id="task" class="list_task hidden">
         <button class="list_task_checked"><i class="fas fa-check"></i></i></button>
-        <p class="list_task_text">Zrób zakupy</p>
-        <button class="list_task_important"><i class="fas fa-star"></i></button>
-        <button class="list_task_edit"><i class="fas fa-pen"></i></button>
-        <button class="list_task_delete"><i class="fas fa-trash"></i></button>
-    </li>
-    <li class="list_task">
-        <button class="list_task_checked"><i class="fas fa-check"></i></i></button>
-        <p class="list_task_text">Odbierz przesyłkę z paczkomatu</p>
+        <p id="task_text" class="list_task_text">Zrób zakupy</p>
+        <p id="task_deadline" class="list_task_text">2021-01-16</p>
         <button class="list_task_important"><i class="fas fa-star"></i></button>
         <button class="list_task_edit"><i class="fas fa-pen"></i></button>
         <button class="list_task_delete"><i class="fas fa-trash"></i></button>
     </li>
 </ul>
+
+
+<!-- pop up add form -->
+
+<div class="add_popup">
+    <div class="overlay"></div>
+    <div class="add_popup_content">
+        <h1 class="add_popup_content_header">Create New Task</h1>
+        <input class="add_popup_content_task" type="text">
+        <label class="add_popup_content_ddl">set a deadline<input type="date"></label>
+        <div class="add_popup_content_btn">
+            <button class="add_popup_content_btn_submit">SAVE</button>
+            <button class="add_popup_content_btn_close">CLOSE</button>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
