@@ -65,22 +65,33 @@ button:hover {
     visibility: hidden;
 }
 
-.header {
-    /* font-family: 'Permanent Marker', cursive; */
-    font-family: 'Reenie Beanie', cursive;
-    font-size: 3em;
-    padding: 50px 100px ;
-    /* padding-top: 50px;
-    padding-bottom: 30px; */
-    background-color: #F9F9FA;
+.list_task.hidden {
+    display: none;
 }
 
-.add.delete {
+.header {
+    background-color: #F9F9FA;
+    padding: 0 220px;
+    height: 15vh;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header_name {
+    
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 3em;
+    
+    
+}
+
+.header_buttons {
     display: flex;
     align-items: center;
-    height: 80px;
-    padding-left: 30px;
+    padding-left: 70px;
 }
+
 
 .add_label, .delete_label {
     font-size: 1em;
@@ -112,14 +123,51 @@ button:hover {
     font-size: 4em;
 }
 
+
+.list_container {
+    width: 100%;
+    min-height: 85vh;
+    margin: 0;
+    padding: 0;
+    background-image: url("../images/sava-bobov-GLIrS9i2y44-unsplash.jpg");
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    padding-bottom: 12vh;
+    box-sizing: border-box;
+
+}
+
+.list_background {
+    position: absolute;
+    background-color: white;
+    opacity: 0.8;
+    width: 80%;
+    min-height: 80%;
+    top: 8vh;
+    left: 10%;
+    border-radius: 5px;
+    
+}
+
 .list {
     display: flex;
     flex-direction: column;
-    padding-left: 30px;
+    padding-left: 220px;
+    padding-top: 12vh;
+    position: relative;
+    z-index: 2;
 }
 .list .fas {
     font-size: 1.5em;
     color: #53505A;
+}
+
+.list_header {
+    font-family: 'Reenie Beanie', cursive;
+    font-size: 2em;   
+    padding-left: 20px;
+    padding-bottom: 20px;
 }
 
 .list_task {
@@ -148,7 +196,7 @@ button:hover {
 }
 
 .list_task_checked.inactive .fas{
-    color: white;
+    opacity: 0;
 }
 
 .list_task_text {
@@ -171,7 +219,7 @@ button:hover {
 }
 
 .list_task_edit:hover .fas{
-    color:#DDEE44
+    color:darkblues
 }
 
 .list_task_delete:hover .fas{

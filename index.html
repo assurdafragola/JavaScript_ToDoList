@@ -13,25 +13,35 @@
 </head>
 <body>
 
-<h1 class="header">REMEMBER THE MILK</h1>
+<div class="header" >
 
-<div class="add delete">
-    <button class="add_button"><i class="fas fa-plus"></i></button>
-    <p class="add_label">Create New Task</p>
-    <button class="delete_button"><i class="fas fa-times"></i></button>
-    <p class="delete_label">Remove Completed Tasks</p>
+    <h1 class="header_name">REMEMBER THE MILK!</h1>
+
+    <div class="header_buttons">
+        <button class="add_button"><i class="fas fa-plus"></i></button>
+        <p class="add_label">Create New Task</p>
+        <button class="delete_button"><i class="fas fa-times"></i></button>
+        <p class="delete_label">Remove Completed Tasks</p>
+    </div>
+
 </div>
 
-<ul class="list">
-    <li id="task" class="list_task hidden">
-        <button class="list_task_checked inactive"><i class="fas fa-check"></i></i></button>
-        <p id="task_text" class="list_task_text">Zrób zakupy</p>
-        <p id="task_deadline" class="list_task_text">2021-01-16</p>
-        <button class="list_task_important"><i class="fas fa-star"></i></button>
-        <button class="list_task_edit"><i class="fas fa-pen"></i></button>
-        <button class="list_task_delete"><i class="fas fa-trash"></i></button>
-    </li>
-</ul>
+<div class="list_container">
+    <div class="list_background"></div>
+    <ul class="list">
+        <li class="list_header">TO DO:</li>
+        <li id="task" class="list_task hidden">
+            <button class="list_task_checked inactive"><i class="fas fa-check"></i></i></button>
+            <p id="task_text" class="list_task_text">Zrób zakupy</p>
+            <p id="task_deadline" class="list_task_text">2021-01-16</p>
+            <button class="list_task_important"><i class="fas fa-star"></i></button>
+            <button class="list_task_edit"><i class="fas fa-pen"></i></button>
+            <button class="list_task_delete"><i class="fas fa-trash"></i></button>
+        </li>
+    </ul>
+</div>
+
+
 
 
 <!-- pop up add form -->
