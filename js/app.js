@@ -1,34 +1,118 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    //add new Task
+    
+    //set task ad completed
+    const completeTask = (e) => {
+        console.log("checked")
+
+        e.currentTarget.classList.toggle("inactive")
+        e.currentTarget.parentElement.classList.toggle("completed")
+    }
+
+    //set task as important
+    const importantTask = (e) => {
+        console.log("important")
+        
+        e.currentTarget.classList.toggle("important")
+    }
+    
+    
+
+    //Pop Ups
+
+    const togglePopup = (element) => {
+        element.classList.toggle("active")
+    }
 
     const addPopup = document.querySelector(".add_popup")
     const addButton = document.querySelector(".add_button")
     const closeAddButton = document.querySelector(".add_popup_content_btn_close")
-    
-    const toggleAddPopup = (element) => {
-        element.classList.toggle("active")
-    }
 
-    addButton.addEventListener("click", function () {toggleAddPopup(addPopup)})
-    closeAddButton.addEventListener("click", function () {toggleAddPopup(addPopup)})
+    addButton.addEventListener("click", function () {togglePopup(addPopup)})
+    closeAddButton.addEventListener("click", function () {togglePopup(addPopup)})
 
     const deletePopup = document.querySelector(".delete_popup")
     const closeDeleteButton = document.querySelector(".delete_popup_content_btn_close")
-
     const confirmDeleteBtn = document.querySelector(".delete_popup_content_btn_submit")
 
-    closeDeleteButton.addEventListener("click", function () {toggleAddPopup(deletePopup)})
-    confirmDeleteBtn.addEventListener("click", function () {toggleAddPopup(deletePopup)})
+    closeDeleteButton.addEventListener("click", function () {togglePopup(deletePopup)})
+    confirmDeleteBtn.addEventListener("click", function () {togglePopup(deletePopup)})
+  
+    const editPopup = document.querySelector(".edit_popup")
+    const closeEditButton = document.querySelector(".edit_popup_content_btn_close")
+    const confirmEditBtn = document.querySelector(".edit_popup_content_btn_submit")
 
-    const deleteTaskPermanently = (e) => {
-        console.log(e.currentTarget.parentElement)
-        e.currentTarget.parentElement.remove()
+    closeEditButton.addEventListener("click", function () {togglePopup(editPopup)})
+    confirmEditBtn.addEventListener("click", function () {togglePopup(editPopup)})
+
+    
+    //edit Task 
+
+    
+
+    let currentTask = undefined
+
+    let currentTaskText = ""
+    let currentTaskDeadline = ""
+
+    const editTaskInput = document.querySelector(".edit_popup_content_task")
+    const editTaskDDL = document.querySelector(".edit_popup_content_ddl input")
+
+    const editTask = (e) => {
+        console.log("edit")
+        togglePopup(editPopup)
+        currentTaskText = e.currentTarget.parentElement.children[1].innerText
+        currentTaskDeadline = e.currentTarget.parentElement.children[2].innerText
+        console.log(currentTaskText)
+        console.log(currentTaskDeadline)
+        editTaskInput.value = currentTaskText
+        editTaskDDL.value = currentTaskDeadline
+
+        currentTask = e.currentTarget.parentElement
+
     }
 
 
+    const editThisTask = () => {
 
-    // confirmDeleteBtn.addEventListener("click", )
+        let editTaskData = {
+            editText:"",
+            editDeadline: ""}
+
+        editTaskData.editText = editTaskInput.value
+
+        editTaskData.editDeadline = editTaskDDL.value
+        
+        console.log(editTaskData)
+        console.log(currentTask)
+
+        currentTask.children[1].innerText = editTaskData.editText
+        currentTask.children[2].innerText = editTaskData.editDeadline
+    }
+    
+    const saveEditButton = document.querySelector(".edit_popup_content_btn_submit")
+    saveEditButton.addEventListener("click", editThisTask)
+
+
+
+    //Delete Task
+
+    let currentTaskToDelete = undefined
+
+    const deleteTask= (e) => {
+        currentTaskToDelete= e.currentTarget.parentElement
+        togglePopup(deletePopup)
+    }
+
+    const confirmDelete = () => {
+        console.log("delete")
+        currentTaskToDelete.remove()
+    }
+
+    confirmDeleteBtn.addEventListener("click", confirmDelete )
+    
+    
+    //New Task
 
     const saveAddButton = document.querySelector(".add_popup_content_btn_submit")
     
@@ -41,36 +125,9 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     let now = new Date()
-
     let currentDate = `${now.getFullYear()}-${now.getMonth()+1}-${now.getDate()}`
 
-    console.log(currentDate)
-
-    let tasks = []
-    let completedTasks = []
-
-    const completeTask = (e) => {
-        console.log("checked")
-
-        e.currentTarget.classList.toggle("inactive")
-        e.currentTarget.parentElement.classList.toggle("completed")
-    }
-
-    const importantTask = (e) => {
-        console.log("important")
-        
-        e.currentTarget.classList.toggle("important")
-    }
-
-    const editTask = () => {
-        console.log("edit")
-    }
-
-    const deleteTask = () => {
-        console.log("delete")
-        toggleAddPopup(deletePopup)
-    }
-    
+    let tasks = []    
 
     const saveNewTask = () => {
 
@@ -99,29 +156,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
         newTask.children[4].addEventListener("click", editTask)
 
-        newTask.children[5].addEventListener("click", deleteTaskPermanently)
+        newTask.children[5].addEventListener("click", deleteTask)
         
         task.after(newTask);
         
         console.log(newTask)
 
-        toggleAddPopup(addPopup);
+        togglePopup(addPopup);
         newTaskInput.value = "";
         newTaskDDL.value = "";
 
     }
+
     saveAddButton.addEventListener("click", saveNewTask)
 
-    const checkTaskBtn = document.querySelectorAll(".list_task_checked")
     
     
-
-
-  
-
     
+    //Remove Completed Tasks
+    
+    let completedTasks = undefined
 
-    checkTaskBtn[0].addEventListener("click", completeTask)
+    const deleteCompletedBtn = document.querySelector(".delete_button")
 
+    const deleteCompleted = () => {
+        completedTasks = document.querySelectorAll(".completed")
+        console.log(completedTasks)
+        for (let i = 0; i < completedTasks.length; i++) {
+            completedTasks[i].remove()     
+        }
+           
+    }
+
+    deleteCompletedBtn.addEventListener("click", deleteCompleted)
 })
 

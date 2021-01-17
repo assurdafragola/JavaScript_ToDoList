@@ -193,7 +193,7 @@ button:hover {
     display:none;
   }
   
-.add_popup_content, .delete_popup_content {
+.add_popup_content, .delete_popup_content, .edit_popup_content {
     position:absolute;
     top:20%;
     left:50%;
@@ -212,25 +212,25 @@ button:hover {
   }
 
 
-.add_popup_content_header, .delete_popup_content_header  {
+.add_popup_content_header, .delete_popup_content_header, .edit_popup_content_header  {
     margin-bottom:20px;
     font-weight: 600;
 }
 
-.add_popup_content_task {
+.add_popup_content_task, .edit_popup_content_task {
     margin-bottom:20px;
     font-size: 0.9em;
     border: 1px solid #53505A;
     border-radius: 5px;
 }
 
-.add_popup_content_ddl {
+.add_popup_content_ddl, .edit_popup_content_ddl {
     margin-bottom:30px;
     font-size: 0.9em;
     font-weight: 300;
 }
 
-.add_popup_content_ddl input {
+.add_popup_content_ddl input, .edit_popup_content_ddl input {
     font-size: 0.9em;
     border: 1px solid #53505A;
     border-radius: 5px;
@@ -238,7 +238,7 @@ button:hover {
     width: 272px
 }
 
-.add_popup_content_btn, .delete_popup_content_btn {
+.add_popup_content_btn, .delete_popup_content_btn, .edit_popup_content_btn {
     display: flex;
     color:#53505A;
     font-size:1.2em;
@@ -249,7 +249,7 @@ button:hover {
     margin-top: 20px;
 }
 
-.add_popup_content_btn_close, .add_popup_content_btn_submit, .delete_popup_content_btn_close, .delete_popup_content_btn_submit  {
+.add_popup_content_btn_close, .add_popup_content_btn_submit, .delete_popup_content_btn_close, .delete_popup_content_btn_submit, .edit_popup_content_btn_close, .edit_popup_content_btn_submit  {
     border-radius: 5px;
     width: 90px;
     height: 30px;
@@ -258,19 +258,19 @@ button:hover {
     font-weight: 600;
 }
 
-.add_popup_content_btn_close, .delete_popup_content_btn_close {
+.add_popup_content_btn_close, .delete_popup_content_btn_close, .edit_popup_content_btn_close {
     background-color: darkred;
 }
 
-.add_popup_content_btn_submit, .delete_popup_content_btn_submit {
+.add_popup_content_btn_submit, .delete_popup_content_btn_submit, .edit_popup_content_btn_submit {
     background-color: #198C19;
 }
   
-.add_popup.active .overlay, .delete_popup.active .overlay {
+.add_popup.active .overlay, .delete_popup.active .overlay, .edit_popup.active .overlay {
     display:block;
 }
   
-.add_popup.active .add_popup_content, .delete_popup.active .delete_popup_content {
+.add_popup.active .add_popup_content, .delete_popup.active .delete_popup_content, .edit_popup.active .edit_popup_content {
     transition:all 300ms ease-in-out;
     transform:translate(-50%,-50%) scale(1);
  }
