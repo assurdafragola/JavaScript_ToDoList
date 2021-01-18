@@ -59,12 +59,9 @@ document.addEventListener("DOMContentLoaded", () => {
     const editTaskDDL = document.querySelector(".edit_popup_content_ddl input")
 
     const editTask = (e) => {
-        console.log("edit")
         togglePopup(editPopup)
         currentTaskText = e.currentTarget.parentElement.children[1].innerText
         currentTaskDeadline = e.currentTarget.parentElement.children[2].innerText
-        console.log(currentTaskText)
-        console.log(currentTaskDeadline)
         editTaskInput.value = currentTaskText
         editTaskDDL.value = currentTaskDeadline
 
@@ -111,7 +108,26 @@ document.addEventListener("DOMContentLoaded", () => {
 
     confirmDeleteBtn.addEventListener("click", confirmDelete )
     
-    
+    //Tooltips 
+    let tooltips = undefined
+    let tooltipsText = []
+    let newTooltip = undefined
+
+    const showTooltip = (e) => {
+        newTooltip = document.createElement("div")
+        newTooltip.innerHTML = e.currentTarget.dataset.tooltip
+        newTooltip.classList.add("tooltip_visible")
+
+        e.currentTarget.style.position = "relative"
+        e.currentTarget.insertBefore(newTooltip, e.currentTarget.children[e.currentTarget.children.length-1]);
+    }
+
+
+    const hideTooltip = (e) => {
+        console.log("ok")
+        e.currentTarget.children[0].remove()
+    }
+
     //New Task
 
     const saveAddButton = document.querySelector(".add_popup_content_btn_submit")
@@ -157,10 +173,24 @@ document.addEventListener("DOMContentLoaded", () => {
         newTask.children[4].addEventListener("click", editTask)
 
         newTask.children[5].addEventListener("click", deleteTask)
-        
+
+
+       
         task.after(newTask);
         
         console.log(newTask)
+
+
+        tooltips = document.querySelectorAll(".tooltip")
+        console.log(tooltips)
+
+        for (let i = 0; i < tooltips.length; i++) {
+
+            tooltipsText.push(tooltips[i].dataset.tooltip)
+            tooltips[i].addEventListener("mouseover", showTooltip)
+            tooltips[i].addEventListener("mouseout", hideTooltip)
+    
+        }
 
         togglePopup(addPopup);
         newTaskInput.value = "";
@@ -189,5 +219,10 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     deleteCompletedBtn.addEventListener("click", deleteCompleted)
+
+
+
+
+
 })
 
